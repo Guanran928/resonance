@@ -64,6 +64,38 @@ Or manually download `PKGBUILD` file and run:
 $ makepkg -sic
 ```
 
+## Nix
+- NaaPM (Nix-as-a-package-manager): 
+
+  - With nix profile: `nix profile install nixpkgs#resonance`
+  - With nix-env: `nix-env -iA resonance`
+
+- NixOS / nix-darwin:
+
+  Put the following in your configuration file.
+
+  ```nix
+  { pkgs, ... }:
+  {
+    environment.systemPackages = with pkgs; [
+      resonance
+    ];
+  }
+  ```
+
+- Home Manager:
+
+  Put the following in your configuration file.
+
+  ```nix
+  { pkgs, ... }:
+  {
+    home.packages = with pkgs; [
+      resonance
+    ];
+  }
+  ```
+
 
 Screenshots
 --------------
